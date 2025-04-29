@@ -36,6 +36,7 @@ RUN apk -U upgrade \
     && apk add --no-cache openssl ca-certificates
 
 COPY --from=build --chown=daemon:daemon /stage /go
+COPY config.ini /go/config.ini          # <<< ADDED THIS LINE
 
 WORKDIR /go
 VOLUME /go/keys
